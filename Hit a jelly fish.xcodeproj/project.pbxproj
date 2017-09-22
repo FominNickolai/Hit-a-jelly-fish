@@ -12,6 +12,8 @@
 		B761469F1F7571720068AD57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B761469D1F7571720068AD57 /* Main.storyboard */; };
 		B76146A11F7571720068AD57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76146A01F7571720068AD57 /* Assets.xcassets */; };
 		B76146A41F7571720068AD57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B76146A21F7571720068AD57 /* LaunchScreen.storyboard */; };
+		B76146AF1F7599A90068AD57 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = B76146AE1F7599A90068AD57 /* art.scnassets */; };
+		B76146B01F759B750068AD57 /* Textures in Resources */ = {isa = PBXBuildFile; fileRef = B76146AC1F758F8A0068AD57 /* Textures */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		B76146A01F7571720068AD57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B76146A31F7571720068AD57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B76146A51F7571720068AD57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B76146AC1F758F8A0068AD57 /* Textures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Textures; sourceTree = "<group>"; };
+		B76146AE1F7599A90068AD57 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +60,12 @@
 			children = (
 				B76146991F7571720068AD57 /* AppDelegate.swift */,
 				B761469B1F7571720068AD57 /* ViewController.swift */,
+				B76146AC1F758F8A0068AD57 /* Textures */,
 				B761469D1F7571720068AD57 /* Main.storyboard */,
 				B76146A01F7571720068AD57 /* Assets.xcassets */,
 				B76146A21F7571720068AD57 /* LaunchScreen.storyboard */,
 				B76146A51F7571720068AD57 /* Info.plist */,
+				B76146AE1F7599A90068AD57 /* art.scnassets */,
 			);
 			path = "Hit a jelly fish";
 			sourceTree = "<group>";
@@ -124,6 +130,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B76146A41F7571720068AD57 /* LaunchScreen.storyboard in Resources */,
+				B76146AF1F7599A90068AD57 /* art.scnassets in Resources */,
+				B76146B01F759B750068AD57 /* Textures in Resources */,
 				B76146A11F7571720068AD57 /* Assets.xcassets in Resources */,
 				B761469F1F7571720068AD57 /* Main.storyboard in Resources */,
 			);
