@@ -7,19 +7,40 @@
 //
 
 import UIKit
+import ARKit
 
 class ViewController: UIViewController {
-
+    
+    //MARK: - @IBOutlets
+    
+    @IBOutlet weak var sceneView: ARSCNView!
+    
+    //MARK: - Properties
+    
+    let configuration = ARWorldTrackingConfiguration()
+    
+    //MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+        self.sceneView.autoenablesDefaultLighting = true
+        self.sceneView.session.run(configuration, options: [])
     }
 
 
+    //MARK: - @IBActions
+    
+    @IBAction func playPressed(_ sender: UIButton) {
+        
+        
+        
+    }
+    
+    @IBAction func resetPressed(_ sender: UIButton) {
+        
+        
+        
+    }
 }
 
