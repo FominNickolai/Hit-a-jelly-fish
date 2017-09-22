@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     //MARK: - @IBOutlets
     
     @IBOutlet weak var sceneView: ARSCNView!
+    @IBOutlet weak var playBtn: UIButton!
     
     //MARK: - Properties
     
@@ -37,6 +38,7 @@ class ViewController: UIViewController {
     
     @IBAction func playPressed(_ sender: UIButton) {
         addNode()
+        self.playBtn.isEnabled = false
     }
     
     @IBAction func resetPressed(_ sender: UIButton) {
@@ -65,11 +67,28 @@ class ViewController: UIViewController {
         } else {
             
             let results = hitTest.first!
-            let geometry = results.node.geometry
-            
-            print("touched a box")
+            let node = results.node
+            if node.animationKeys.isEmpty {
+                self.animateNode(node: node)
+            }
         }
         
+    }
+    
+    func animateNode(node: SCNNode) {
+        let spin = CABasicAnimation(keyPath: "position")
+        //presentation - текущая позиция на экране
+        spin.fromValue = node.presentation.position
+        //от текущей позици минус 0.2 во всех направлениях
+        spin.toValue = SCNVector3(node.presentation.position.x - 0.2, node.presentation.position.y - 0.2, node.presentation.position.z - 0.2)
+        //длительность анимации
+        spin.duration = 0.07
+        //autoreverses - возвращается в текущую позицию после анимирования(анимированно)
+        spin.autoreverses = true
+        //количество повторений анимации
+        spin.repeatCount = 5
+        //addAnimation - добавление анимации
+        node.addAnimation(spin, forKey: "position")
     }
     
 }
