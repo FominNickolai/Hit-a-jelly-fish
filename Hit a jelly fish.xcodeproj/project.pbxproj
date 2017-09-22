@@ -14,9 +14,13 @@
 		B76146A41F7571720068AD57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B76146A21F7571720068AD57 /* LaunchScreen.storyboard */; };
 		B76146AF1F7599A90068AD57 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = B76146AE1F7599A90068AD57 /* art.scnassets */; };
 		B76146B01F759B750068AD57 /* Textures in Resources */ = {isa = PBXBuildFile; fileRef = B76146AC1F758F8A0068AD57 /* Textures */; };
+		F56A75AFC413BE7393348518 /* Pods_Hit_a_jelly_fish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A2AC7BAA2DBEE2C65106C4 /* Pods_Hit_a_jelly_fish.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12A23BAD403C0E6FCFDBE678 /* Pods-Hit a jelly fish.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hit a jelly fish.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hit a jelly fish/Pods-Hit a jelly fish.debug.xcconfig"; sourceTree = "<group>"; };
+		2882F959B823DAAC54C513B3 /* Pods-Hit a jelly fish.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hit a jelly fish.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hit a jelly fish/Pods-Hit a jelly fish.release.xcconfig"; sourceTree = "<group>"; };
+		72A2AC7BAA2DBEE2C65106C4 /* Pods_Hit_a_jelly_fish.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hit_a_jelly_fish.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76146961F7571720068AD57 /* Hit a jelly fish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hit a jelly fish.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76146991F7571720068AD57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B761469B1F7571720068AD57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F56A75AFC413BE7393348518 /* Pods_Hit_a_jelly_fish.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1ADF84FFE4B75C605D73799D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				12A23BAD403C0E6FCFDBE678 /* Pods-Hit a jelly fish.debug.xcconfig */,
+				2882F959B823DAAC54C513B3 /* Pods-Hit a jelly fish.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2192ADF11A392EA0DE6A5C33 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72A2AC7BAA2DBEE2C65106C4 /* Pods_Hit_a_jelly_fish.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B761468D1F7571720068AD57 = {
 			isa = PBXGroup;
 			children = (
 				B76146981F7571720068AD57 /* Hit a jelly fish */,
 				B76146971F7571720068AD57 /* Products */,
+				1ADF84FFE4B75C605D73799D /* Pods */,
+				2192ADF11A392EA0DE6A5C33 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,9 +101,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B76146A81F7571720068AD57 /* Build configuration list for PBXNativeTarget "Hit a jelly fish" */;
 			buildPhases = (
+				AAD7CEE7761AF8505E0E26A7 /* [CP] Check Pods Manifest.lock */,
 				B76146921F7571720068AD57 /* Sources */,
 				B76146931F7571720068AD57 /* Frameworks */,
 				B76146941F7571720068AD57 /* Resources */,
+				E6158854E7A8BE7070F5DBE9 /* [CP] Embed Pods Frameworks */,
+				0807D89271EB13874E0465D9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -138,6 +165,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0807D89271EB13874E0465D9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hit a jelly fish/Pods-Hit a jelly fish-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAD7CEE7761AF8505E0E26A7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E6158854E7A8BE7070F5DBE9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hit a jelly fish/Pods-Hit a jelly fish-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B76146921F7571720068AD57 /* Sources */ = {
@@ -280,6 +355,7 @@
 		};
 		B76146A91F7571720068AD57 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12A23BAD403C0E6FCFDBE678 /* Pods-Hit a jelly fish.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -295,6 +371,7 @@
 		};
 		B76146AA1F7571720068AD57 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2882F959B823DAAC54C513B3 /* Pods-Hit a jelly fish.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

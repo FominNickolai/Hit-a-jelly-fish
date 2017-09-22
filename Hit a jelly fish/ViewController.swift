@@ -8,6 +8,7 @@
 
 import UIKit
 import ARKit
+import Each
 
 class ViewController: UIViewController {
     
@@ -15,16 +16,19 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var playBtn: UIButton!
+    @IBOutlet weak var timerLabel: UILabel!
     
     //MARK: - Properties
     
     let configuration = ARWorldTrackingConfiguration()
+    var timer = Each(1).seconds
+    var countDown = 10
     
     //MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+        //self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         self.sceneView.autoenablesDefaultLighting = true
         self.sceneView.session.run(configuration, options: [])
         
@@ -37,13 +41,20 @@ class ViewController: UIViewController {
     //MARK: - @IBActions
     
     @IBAction func playPressed(_ sender: UIButton) {
+        setTimer()
         addNode()
         self.playBtn.isEnabled = false
     }
     
     @IBAction func resetPressed(_ sender: UIButton) {
         
+        self.timer.stop()
+        self.restoreTimer()
+        self.playBtn.isEnabled = true
         
+        self.sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
+            node.removeFromParentNode()
+        }
         
     }
     
@@ -52,7 +63,10 @@ class ViewController: UIViewController {
     func addNode() {
         let jellyFishScene = SCNScene(named: "art.scnassets/Jellyfish.scn")
         let jellyFishNode = jellyFishScene?.rootNode.childNode(withName: "Jellyfish", recursively: false)
-        jellyFishNode?.position = SCNVector3(0, 0, -1)
+        let x = randomNumbers(fristNum: -1, secondNum: 1)
+        let y = randomNumbers(fristNum: -0.5, secondNum: 0.5)
+        let z = randomNumbers(fristNum: -1, secondNum: 1)
+        jellyFishNode?.position = SCNVector3(x, y, z)
         self.sceneView.scene.rootNode.addChildNode(jellyFishNode!)
     }
     
@@ -66,10 +80,22 @@ class ViewController: UIViewController {
             print("didn't touch anything")
         } else {
             
-            let results = hitTest.first!
-            let node = results.node
-            if node.animationKeys.isEmpty {
-                self.animateNode(node: node)
+            if countDown > 0 {
+                let results = hitTest.first!
+                let node = results.node
+                if node.animationKeys.isEmpty {
+                    //Отслеживание окончания анимации
+                    SCNTransaction.begin()
+                    self.animateNode(node: node)
+                    SCNTransaction.completionBlock = {
+                        //удаляем после окончания анимации
+                        node.removeFromParentNode()
+                        self.addNode()
+                        self.restoreTimer()
+                    }
+                    SCNTransaction.commit()
+                    
+                }
             }
         }
         
@@ -91,7 +117,33 @@ class ViewController: UIViewController {
         node.addAnimation(spin, forKey: "position")
     }
     
+    func setTimer() {
+        
+        self.timer.perform { () -> NextStep in
+            self.countDown -= 1
+            self.timerLabel.text = "\(self.countDown)"
+            if self.countDown == 0 {
+                self.timerLabel.text = "You Lose!"
+                return .stop
+            }
+            return .continue
+        }
+        
+    }
+    
+    func restoreTimer() {
+        self.countDown = 10
+        self.timerLabel.text = "\(self.countDown)"
+    }
+    
+    //Random value in Range
+    func randomNumbers(fristNum: CGFloat, secondNum: CGFloat) -> CGFloat {
+        return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(fristNum - secondNum) + min(fristNum, secondNum)
+    }
+    
 }
+
+
 
 
 
